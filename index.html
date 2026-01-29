@@ -1,0 +1,381 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="A personal website sharing the story of my life: Beijing to the U.S., music, sports, and my college journey." />
+  <title>My Story</title>
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card: #121a27;
+      --text: #e9eef7;
+      --muted: #b6c2d6;
+      --accent: #7aa2ff;
+      --border: rgba(255,255,255,0.12);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --radius: 16px;
+      --max: 980px;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 800px at 15% 10%, rgba(122,162,255,0.22), transparent 55%),
+                  radial-gradient(1000px 700px at 85% 20%, rgba(122,255,216,0.12), transparent 60%),
+                  var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    header {
+      padding: 64px 20px 28px;
+    }
+
+    .wrap {
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+
+    .topbar {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 28px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 20px rgba(122,162,255,0.6);
+    }
+
+    nav {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    nav a {
+      color: var(--muted);
+      padding: 8px 10px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(255,255,255,0.04);
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 28px 0 8px;
+      display: grid;
+      grid-template-columns: 1.3fr 0.7fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .hero h1 {
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
+      margin: 0 0 14px;
+    }
+
+    .hero p {
+      margin: 0 0 16px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+
+    .card {
+      background: rgba(18,26,39,0.86);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      backdrop-filter: blur(8px);
+    }
+
+    .quickfacts h2,
+    .section h2 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .facts {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 10px;
+    }
+
+    .facts li {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .facts .label {
+      color: var(--muted);
+      font-weight: 600;
+    }
+
+    main {
+      padding: 0 20px 64px;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .section p { margin: 0 0 10px; color: var(--muted); }
+
+    .timeline {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 12px;
+    }
+
+    .timeline li {
+      padding: 14px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .timeline .when {
+      display: inline-block;
+      font-size: 13px;
+      color: var(--muted);
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.03);
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      padding: 22px 20px 40px;
+      color: var(--muted);
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; }
+      nav { justify-content: flex-start; }
+      .facts li { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="topbar">
+        <div class="brand">
+          <span class="dot" aria-hidden="true"></span>
+          <span>My Story</span>
+        </div>
+
+        <nav aria-label="Primary">
+          <a href="#about">About</a>
+          <a href="#timeline">Timeline</a>
+          <a href="#stories">Stories</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+
+      <section class="hero" aria-label="Introduction">
+        <div class="card">
+          <h1>From Beijing to Babson</h1>
+          <p>
+            This site is a living record of my life story. I was born in Beijing, China, moved to the United States in third grade,
+            and grew up shaped by music, sports, and the experience of building a life across cultures.
+          </p>
+          <p>
+            I played violin, competed in tennis, started college at Northeastern, spent my first semester traveling around Europe
+            beginning in the Czech Republic, and later transferred to Babson.
+          </p>
+          <p>
+            Over time, I will expand this website with full stories, photos, and reflections.
+          </p>
+        </div>
+
+        <aside class="card quickfacts" aria-label="Quick facts">
+          <h2>Quick Facts</h2>
+          <ul class="facts">
+            <li>
+              <span class="label">Born</span>
+              <span>Beijing, China</span>
+            </li>
+            <li>
+              <span class="label">Moved</span>
+              <span>United States in 3rd grade</span>
+            </li>
+            <li>
+              <span class="label">Music</span>
+              <span>Violin</span>
+            </li>
+            <li>
+              <span class="label">Sport</span>
+              <span>Tennis</span>
+            </li>
+            <li>
+              <span class="label">College</span>
+              <span>Northeastern, then Babson</span>
+            </li>
+            <li>
+              <span class="label">Travel</span>
+              <span>Europe first semester, starting in the Czech Republic</span>
+            </li>
+          </ul>
+        </aside>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap">
+      <section id="about" class="card section" aria-label="About this site">
+        <h2>About</h2>
+        <p>
+          I built this website to share personal stories and the moments that shaped who I am. It is not a resume.
+          It is a narrative: where I came from, what I chased, what changed me, and what I learned along the way.
+        </p>
+        <p>
+          If you are here, you are reading the early draft. More chapters are coming.
+        </p>
+      </section>
+
+      <section id="timeline" class="card section" aria-label="Timeline">
+        <h2>Timeline</h2>
+        <ul class="timeline">
+          <li>
+            <div class="when">Chapter 1</div>
+            <div><strong>Beijing, China</strong></div>
+            <div class="muted">Born in Beijing. Early childhood rooted in family and origin.</div>
+          </li>
+          <li>
+            <div class="when">Chapter 2</div>
+            <div><strong>Move to the United States</strong></div>
+            <div class="muted">Moved to the U.S. in third grade, beginning a new life and identity shift.</div>
+          </li>
+          <li>
+            <div class="when">Chapter 3</div>
+            <div><strong>Music and Sports</strong></div>
+            <div class="muted">Played violin and tennis, learning discipline, repetition, and confidence.</div>
+          </li>
+          <li>
+            <div class="when">Chapter 4</div>
+            <div><strong>Northeastern University</strong></div>
+            <div class="muted">Started college at Northeastern and explored what independence really means.</div>
+          </li>
+          <li>
+            <div class="when">Chapter 5</div>
+            <div><strong>Europe, First Semester</strong></div>
+            <div class="muted">Traveled around Europe during my first semester, beginning in the Czech Republic.</div>
+          </li>
+          <li>
+            <div class="when">Chapter 6</div>
+            <div><strong>Transfer to Babson</strong></div>
+            <div class="muted">Transferred to Babson and continued building my path with new focus and community.</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="stories" class="card section" aria-label="Stories">
+        <h2>Stories</h2>
+        <p>
+          This section is where full stories will live. Each story will be a page in the future, but for now,
+          here are placeholders you can expand.
+        </p>
+
+        <div class="grid" role="list">
+          <article class="card" role="listitem">
+            <h3 style="margin:0 0 8px;">Beijing to the U.S. in Third Grade</h3>
+            <p style="margin:0; color: var(--muted);">
+              A story about leaving home, learning a new language and culture, and rebuilding confidence.
+            </p>
+          </article>
+
+          <article class="card" role="listitem">
+            <h3 style="margin:0 0 8px;">Violin and Tennis</h3>
+            <p style="margin:0; color: var(--muted);">
+              A story about practice, pressure, and how competing and performing shaped my mindset.
+            </p>
+          </article>
+
+          <article class="card" role="listitem">
+            <h3 style="margin:0 0 8px;">Europe First Semester</h3>
+            <p style="margin:0; color: var(--muted);">
+              A story about traveling through Europe starting in the Czech Republic and how that changed my perspective.
+            </p>
+          </article>
+
+          <article class="card" role="listitem">
+            <h3 style="margin:0 0 8px;">Northeastern to Babson</h3>
+            <p style="margin:0; color: var(--muted);">
+              A story about transferring schools, making hard decisions, and choosing a better fit.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section id="contact" class="card section" aria-label="Contact">
+        <h2>Contact</h2>
+        <p>
+          If you want to reach me, add your email or social links here later.
+        </p>
+
+        <p style="margin:0; color: var(--muted);">
+          Email: <em>yourname@example.com</em><br />
+          LinkedIn: <em>linkedin.com/in/yourprofile</em>
+        </p>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <small>© <span id="year"></span> My Story. Built as a living narrative.</small>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
