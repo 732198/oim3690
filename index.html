@@ -1,9 +1,11 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="A personal website sharing the story of my life: Beijing to the U.S., music, sports, and my college journey." />
+  <meta name="description"
+    content="A personal website sharing the story of my life: Beijing to the U.S., music, sports, and my college journey." />
   <title>My Story</title>
   <style>
     :root {
@@ -12,26 +14,39 @@
       --text: #e9eef7;
       --muted: #b6c2d6;
       --accent: #7aa2ff;
-      --border: rgba(255,255,255,0.12);
-      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+      --border: rgba(255, 255, 255, 0.12);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
       --radius: 16px;
       --max: 980px;
     }
 
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+    }
+
     body {
       margin: 0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      background: radial-gradient(1200px 800px at 15% 10%, rgba(122,162,255,0.22), transparent 55%),
-                  radial-gradient(1000px 700px at 85% 20%, rgba(122,255,216,0.12), transparent 60%),
-                  var(--bg);
+      background: radial-gradient(1200px 800px at 15% 10%, rgba(122, 162, 255, 0.22), transparent 55%),
+        radial-gradient(1000px 700px at 85% 20%, rgba(122, 255, 216, 0.12), transparent 60%),
+        var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
 
-    a { color: var(--accent); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
 
     header {
       padding: 64px 20px 28px;
@@ -63,7 +78,7 @@
       height: 12px;
       border-radius: 999px;
       background: var(--accent);
-      box-shadow: 0 0 20px rgba(122,162,255,0.6);
+      box-shadow: 0 0 20px rgba(98, 109, 136, 0.6);
     }
 
     nav {
@@ -71,6 +86,49 @@
       gap: 14px;
       flex-wrap: wrap;
       justify-content: flex-end;
+    }
+
+    .nav-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid transparent;
+      padding: 8px;
+      border-radius: 10px;
+      cursor: pointer;
+      color: var(--muted);
+    }
+
+    .nav-toggle:focus {
+      outline: 2px solid rgba(122, 162, 255, 0.25);
+      outline-offset: 2px;
+    }
+
+    .nav-toggle .bar {
+      display: block;
+      width: 20px;
+      height: 2px;
+      background: currentColor;
+      margin: 4px 0;
+      transition: transform .2s ease, opacity .2s ease;
+    }
+
+    .nav.open {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: absolute;
+      right: 20px;
+      left: 20px;
+      top: 84px;
+      background: rgba(11, 15, 23, 0.95);
+      padding: 12px;
+      border-radius: 12px;
+      z-index: 50;
+    }
+
+    .nav.open a {
+      padding: 10px 12px;
+      border-radius: 8px;
     }
 
     nav a {
@@ -83,7 +141,7 @@
     nav a:hover {
       color: var(--text);
       border-color: var(--border);
-      background: rgba(255,255,255,0.04);
+      background: rgba(255, 255, 255, 0.04);
       text-decoration: none;
     }
 
@@ -108,7 +166,7 @@
     }
 
     .card {
-      background: rgba(18,26,39,0.86);
+      background: rgba(18, 26, 39, 0.86);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
@@ -139,8 +197,8 @@
       gap: 10px;
       padding: 10px 12px;
       border-radius: 12px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .facts .label {
@@ -158,7 +216,10 @@
       margin-top: 18px;
     }
 
-    .section p { margin: 0 0 10px; color: var(--muted); }
+    .section p {
+      margin: 0 0 10px;
+      color: var(--muted);
+    }
 
     .timeline {
       margin: 0;
@@ -171,16 +232,16 @@
     .timeline li {
       padding: 14px 14px;
       border-radius: 14px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
     }
 
     .timeline .when {
       display: inline-block;
       font-size: 13px;
       color: var(--muted);
-      border: 1px solid rgba(255,255,255,0.10);
-      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255, 255, 255, 0.10);
+      background: rgba(255, 255, 255, 0.03);
       padding: 4px 10px;
       border-radius: 999px;
       margin-bottom: 8px;
@@ -190,13 +251,26 @@
       padding: 22px 20px 40px;
       color: var(--muted);
       text-align: center;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
     @media (max-width: 860px) {
-      .hero { grid-template-columns: 1fr; }
-      nav { justify-content: flex-start; }
-      .facts li { grid-template-columns: 1fr; }
+      .hero {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        display: none;
+        justify-content: flex-start;
+      }
+
+      .nav-toggle {
+        display: block;
+      }
+
+      .facts li {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -210,7 +284,13 @@
           <span>My Story</span>
         </div>
 
-        <nav aria-label="Primary">
+        <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+        </button>
+
+        <nav id="primary-nav" aria-label="Primary">
           <a href="#about">About</a>
           <a href="#timeline">Timeline</a>
           <a href="#stories">Stories</a>
@@ -222,11 +302,13 @@
         <div class="card">
           <h1>From Beijing to Babson</h1>
           <p>
-            This site is a living record of my life story. I was born in Beijing, China, moved to the United States in third grade,
+            This site is a living record of my life story. I was born in Beijing, China, moved to the United States in
+            third grade,
             and grew up shaped by music, sports, and the experience of building a life across cultures.
           </p>
           <p>
-            I played violin, competed in tennis, started college at Northeastern, spent my first semester traveling around Europe
+            I played violin, competed in tennis, started college at Northeastern, spent my first semester traveling
+            around Europe
             beginning in the Czech Republic, and later transferred to Babson.
           </p>
           <p>
@@ -376,6 +458,18 @@
 
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var toggle = document.querySelector('.nav-toggle');
+      var nav = document.getElementById('primary-nav');
+      if (!toggle || !nav) return;
+
+      toggle.addEventListener('click', function () {
+        var opened = nav.classList.toggle('open');
+        toggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
+      });
+    });
   </script>
 </body>
+
 </html>
