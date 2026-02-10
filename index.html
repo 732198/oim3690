@@ -112,6 +112,20 @@
       transition: transform .2s ease, opacity .2s ease;
     }
 
+    /* Animated transform for burger -> X */
+    .nav-toggle.open .bar:nth-child(1) {
+      transform: translateY(6px) rotate(45deg);
+    }
+
+    .nav-toggle.open .bar:nth-child(2) {
+      opacity: 0;
+      transform: scaleX(0);
+    }
+
+    .nav-toggle.open .bar:nth-child(3) {
+      transform: translateY(-6px) rotate(-45deg);
+    }
+
     .nav.open {
       display: flex;
       flex-direction: column;
@@ -466,6 +480,7 @@
 
       toggle.addEventListener('click', function () {
         var opened = nav.classList.toggle('open');
+        toggle.classList.toggle('open', opened);
         toggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
       });
     });
