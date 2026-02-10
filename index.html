@@ -167,6 +167,14 @@
       align-items: start;
     }
 
+    /* mini-cards on the right column for quick access */
+    .mini-cards { display: grid; gap:10px; }
+    .mini-card { background: rgba(255,255,255,0.03); padding:12px; border-radius:12px; border:1px solid rgba(255,255,255,0.04); }
+    .mini-card h3 { margin:0 0 6px; font-size:15px }
+    .mini-card p { margin:0; color:var(--muted); font-size:13px }
+    .mini-card a { display:inline-block; margin-top:8px; color:var(--accent); font-weight:600 }
+    .mini-card:hover { transform:translateY(-4px); transition:transform .18s ease; box-shadow: 0 8px 20px rgba(0,0,0,0.35) }
+
     .hero h1 {
       font-size: clamp(30px, 4vw, 46px);
       line-height: 1.15;
@@ -286,6 +294,24 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Favorites / interactive section */
+    .favorites .grid { display: grid; gap: 12px; grid-template-columns: 1fr 1fr; }
+    .fav-card { background: rgba(255,255,255,0.02); padding: 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.04); }
+    .cuisine { display:flex; align-items:center; gap:12px; }
+    .cuisine .icon { font-size:28px; }
+    .recipe-list { display:none; margin-top:10px; color: var(--muted); }
+    .recipe-list.open { display:block; }
+    .toggle-btn { background: transparent; border: 1px solid rgba(255,255,255,0.06); color: var(--muted); padding:6px 10px; border-radius:8px; cursor:pointer; }
+    .place { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 12px; border-radius:10px; background: rgba(255,255,255,0.02); }
+    .visited { background: rgba(122,162,255,0.12); border-color: rgba(122,162,255,0.18); }
+    @media (max-width:860px){ .favorites .grid { grid-template-columns:1fr } }
+    /* Alaska itinerary styles */
+    .itinerary { display: grid; gap: 12px; margin-top:12px }
+    .it-day { display: grid; grid-template-columns:140px 1fr; gap:12px; align-items:start; padding:10px; border-radius:10px; background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.03) }
+    .it-day img { width:140px; height:96px; object-fit:cover; border-radius:8px }
+    .it-day h4{margin:0 0 6px}
+    @media (max-width:860px){ .it-day { grid-template-columns:1fr; } .it-day img{width:100%;height:160px} }
   </style>
 </head>
 
@@ -310,7 +336,7 @@
           <a href="#stories">Stories</a>
           <a href="#contact">Contact</a>
         </nav>
-      </div>
+
 
       <section class="hero" aria-label="Introduction">
         <div class="card">
@@ -330,34 +356,33 @@
           </p>
         </div>
 
-        <aside class="card quickfacts" aria-label="Quick facts">
-          <h2>Quick Facts</h2>
-          <ul class="facts">
-            <li>
-              <span class="label">Born</span>
-              <span>Beijing, China</span>
-            </li>
-            <li>
-              <span class="label">Moved</span>
-              <span>United States in 3rd grade</span>
-            </li>
-            <li>
-              <span class="label">Music</span>
-              <span>Violin</span>
-            </li>
-            <li>
-              <span class="label">Sport</span>
-              <span>Tennis</span>
-            </li>
-            <li>
-              <span class="label">College</span>
-              <span>Northeastern, then Babson</span>
-            </li>
-            <li>
-              <span class="label">Travel</span>
-              <span>Europe first semester, starting in the Czech Republic</span>
-            </li>
-          </ul>
+        <aside class="card quickfacts" aria-label="Quick links">
+          <h2>Quick Links</h2>
+          <div class="mini-cards">
+            <div class="mini-card" role="article">
+              <h3>About</h3>
+              <p>Short intro and purpose of this site — a living narrative, not a resume.</p>
+              <a href="#about">Read more</a>
+            </div>
+
+            <div class="mini-card" role="article">
+              <h3>Timeline</h3>
+              <p>Major chapters of my life from Beijing to Babson, highlights and dates.</p>
+              <a href="#timeline">View timeline</a>
+            </div>
+
+            <div class="mini-card" role="article">
+              <h3>Stories</h3>
+              <p>Full stories and placeholders — expand into separate pages later.</p>
+              <a href="#stories">See stories</a>
+            </div>
+
+            <div class="mini-card" role="article">
+              <h3>Contact</h3>
+              <p>Find my email and LinkedIn to connect.</p>
+              <a href="#contact">Contact</a>
+            </div>
+          </div>
         </aside>
       </section>
     </div>
@@ -374,6 +399,7 @@
         <p>
           If you are here, you are reading the early draft. More chapters are coming.
         </p>
+        <p style="margin-top:8px; color: var(--muted);">Connect on LinkedIn: <a href="https://www.linkedin.com/in/changbokai-zhang-9390b32ab/" target="_blank" rel="noopener">linkedin.com/in/changbokai-zhang-9390b32ab</a></p>
       </section>
 
       <section id="timeline" class="card section" aria-label="Timeline">
@@ -411,6 +437,129 @@
           </li>
         </ul>
       </section>
+
+      <!-- Decisions section: moved favorites here so it's next to About / Timeline -->
+      <section id="decisions" class="card section favorites" aria-label="Decisions">
+        <h2>Decisions</h2>
+        <p style="color: var(--muted); margin-top:0;">Some things I love: food, travel, and places that inspire me.</p>
+
+        <div class="grid" role="list">
+          <div class="fav-card">
+            <div class="cuisine">
+              <div class="icon" aria-hidden="true">🥟🍜</div>
+              <div>
+                <strong>Chinese Cuisine</strong>
+                <div style="color: var(--muted); font-size:13px;">Comfort dishes I enjoy</div>
+              </div>
+            </div>
+            <button class="toggle-btn" aria-expanded="false">Show recipes</button>
+            <div class="recipe-list" aria-hidden="true">
+              <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted);">
+                <li><strong>Jiaozi (Dumplings)</strong> — simple pan-fried or boiled dumplings, great for gatherings.</li>
+                <li><strong>Mapo Tofu</strong> — spicy, savory tofu with a bold sauce (use Sichuan peppercorns for aroma).</li>
+                <li><strong>Kung Pao Chicken</strong> — stir-fried chicken with peanuts, chile, and a sweet-savory sauce.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="fav-card">
+            <div class="cuisine">
+              <div class="icon" aria-hidden="true">🍝🍕</div>
+              <div>
+                <strong>Italian Cuisine</strong>
+                <div style="color: var(--muted); font-size:13px;">Classic favorites I love</div>
+              </div>
+            </div>
+            <button class="toggle-btn" aria-expanded="false">Show recipes</button>
+            <div class="recipe-list" aria-hidden="true">
+              <ul style="margin:10px 0 0; padding-left:18px; color:var(--muted);">
+                <li><strong>Spaghetti Carbonara</strong> — simple eggs, cheese, pancetta, and pepper.</li>
+                <li><strong>Margherita Pizza</strong> — fresh tomato, mozzarella, basil.</li>
+                <li><strong>Tiramisu</strong> — coffee-soaked ladyfingers with mascarpone cream.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <hr style="margin:18px 0" />
+
+        <div style="margin-top:8px">
+          <h3 style="margin:0 0 8px">Favorite Places to Travel</h3>
+          <p style="color: var(--muted); margin:0 0 12px">Places I love visiting — short notes and quick links.</p>
+
+          <div class="place" role="listitem">
+            <div>
+              <strong>Alaska</strong>
+              <div style="color:var(--muted); font-size:13px">Mountains, glaciers, and wide-open skies — my favorite.</div>
+            </div>
+            <div style="display:flex;gap:8px;align-items:center">
+              <a class="toggle-btn" href="https://www.nps.gov/dena/index.htm" target="_blank" rel="noopener">Learn</a>
+            </div>
+          </div>
+
+          <div style="margin-top:14px">
+            <h4 style="margin:8px 0">Alaska — Suggested 7-Day Tour</h4>
+            <p style="color:var(--muted); margin:0 0 8px">A compact 7-day loop highlighting coastal wildlife, glaciers, Denali, and northern lights opportunities. Replace photos with your own if desired.</p>
+
+            <div class="itinerary">
+              <div class="it-day">
+                <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=1200&q=80&auto=format&fit=crop" alt="Anchorage city and mountains" />
+                <div>
+                  <h4>Day 1 — Anchorage</h4>
+                  <p style="margin:0;color:var(--muted)">Arrive in Anchorage, explore downtown and the Tony Knowles Coastal Trail. Grab fresh seafood and rest up.</p>
+                </div>
+              </div>
+
+              <div class="it-day">
+                <img src="https://images.unsplash.com/photo-1508264165352-258a6d17f0a1?w=1200&q=80&auto=format&fit=crop" alt="Kenai Fjords boat and glacier" />
+                <div>
+                  <h4>Day 2 — Seward / Kenai Fjords</h4>
+                  <p style="margin:0;color:var(--muted)">Take a boat tour to see tidewater glaciers and marine wildlife (whales, sea otters, puffins). Bring layers and a waterproof jacket.</p>
+                </div>
+              </div>
+
+              <div class="it-day">
+                <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=80&auto=format&fit=crop" alt="Homer coastline and boats" />
+                <div>
+                  <h4>Day 3 — Homer / Kachemak Bay</h4>
+                  <p style="margin:0;color:var(--muted)">Drive or take a ferry to Homer for coastal views, clamming, and local art. Try local halibut and visit the Homer Spit.</p>
+                </div>
+              </div>
+
+              <div class="it-day">
+                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&q=80&auto=format&fit=crop" alt="Roads toward Denali National Park" />
+                <div>
+                  <h4>Day 4 — Travel north to Denali region</h4>
+                  <p style="margin:0;color:var(--muted)">Head north toward Denali (overnight in Talkeetna or nearby). Consider a small-plane flightseeing trip for glacier views.</p>
+                </div>
+              </div>
+
+              <div class="it-day">
+                <img src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1200&q=80&auto=format&fit=crop" alt="Denali mountain landscape" />
+                <div>
+                  <h4>Day 5 — Denali National Park</h4>
+                  <p style="margin:0;color:var(--muted)">Spend the day in Denali: bus tours into the park, short hikes, and wildlife viewing. Keep distance from animals and follow park guidance.</p>
+                </div>
+              </div>
+
+              <div class="it-day">
+                <img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?w=1200&q=80&auto=format&fit=crop" alt="Northern lights over trees" />
+                <div>
+                  <h4>Day 6 — Fairbanks & Northern Lights</h4>
+                  <p style="margin:0;color:var(--muted)">Travel to Fairbanks area for a higher chance of aurora viewing (seasonal). Consider a guided aurora tour and warm layers.</p>
+                </div>
+              </div>
+
+              <div class="it-day">
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1200&q=80&auto=format&fit=crop" alt="Flightseeing over glacier" />
+                <div>
+                  <h4>Day 7 — Flightseeing / Glacier visit</h4>
+                  <p style="margin:0;color:var(--muted)">Finish with a flightseeing tour over glaciers or a boat trip (seasonal). Return to Anchorage and prepare for departure.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
       <section id="stories" class="card section" aria-label="Stories">
         <h2>Stories</h2>
@@ -483,6 +632,23 @@
         toggle.classList.toggle('open', opened);
         toggle.setAttribute('aria-expanded', opened ? 'true' : 'false');
       });
+
+      // Recipes toggles
+      var favSection = document.querySelector('.favorites');
+      if (favSection) {
+        var buttons = favSection.querySelectorAll('.toggle-btn');
+        buttons.forEach(function(btn){
+          btn.addEventListener('click', function(){
+            // toggle the next recipe-list element
+            var list = btn.nextElementSibling;
+            if (!list) return;
+            var open = list.classList.toggle('open');
+            list.setAttribute('aria-hidden', open ? 'false' : 'true');
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            btn.textContent = open ? 'Hide recipes' : 'Show recipes';
+          });
+        });
+      }
     });
   </script>
 </body>
