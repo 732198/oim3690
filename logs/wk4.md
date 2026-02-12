@@ -41,3 +41,8 @@ Quick tips:
 - Always include `alt` on images for accessibility.
 - Use semantic tags to improve accessibility and SEO.
 - Put visible content inside `body`; metadata belongs in `head`.
+
+
+need to create repository for own learning log 
+
+code in separate folder 1 for html 1 for css 1 for js

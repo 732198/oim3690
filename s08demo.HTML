@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Babson Demo</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <style>h1{color:orange}</style>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main-content" style="position:absolute;left:-999px;top:auto;">Skip to content</a>
+    <header class="site-header">
+      <div class="wrap" style="display:flex;align-items:center;justify-content:space-between">
+        <div class="brand">
+          <strong>Babson Demo</strong>
+        </div>
+        <button class="nav-toggle" aria-controls="primary-nav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+          <span class="bar" aria-hidden="true"></span>
+        </button>
+        <nav id="primary-nav" aria-label="Primary navigation">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="wrap card">
+          <h1 style="margin-top:0">Welcome to Babson — Demo Page</h1>
+          <p style="color:var(--muted)">A small example page showing a simple semantic structure, navigation, and an image gallery. Replace the image URLs with your own photos of Babson if you have them.</p>
+        <!doctype html>
+        <html lang="en">
+          <head>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Babson Demo (HTML only)</title>
+          </head>
+          <body>
+            <header>
+              <h1>Babson Demo</h1>
+              <nav aria-label="Primary navigation">
+                <a href="#home">Home</a> |
+                <a href="#about">About</a> |
+                <a href="#gallery">Gallery</a> |
+                <a href="#contact">Contact</a>
+              </nav>
+            </header>
+
+            <main>
+              <section id="home" aria-labelledby="home-heading">
+                <h2 id="home-heading">Welcome to Babson — Demo Page</h2>
+                <p>A small example page showing a simple semantic structure, navigation, and an image gallery. Replace the image URLs with your own photos of Babson if you have them.</p>
+              </section>
+
+              <section id="about" aria-labelledby="about-heading">
+                <h2 id="about-heading">About Babson (short)</h2>
+                <p><strong>Babson College</strong> is known for its focus on entrepreneurship, experiential learning, and a global alumni network. This demo highlights how to structure content with semantic tags and accessible images.</p>
+                <p><a href="https://www.babson.edu" target="_blank" rel="noopener">Visit Babson College</a></p>
+              </section>
+
+              <section id="gallery" aria-labelledby="gallery-heading">
+                <h2 id="gallery-heading">Gallery — Babson</h2>
+                <p>Images below are examples. Replace these with local files (for example <code>images/babson1.jpg</code>) if you prefer.</p>
+                <figure>
+                  <img src="https://www.babson.edu/media/babson/assets/visit-babson/VisitBabson-Wellesley-Hero-Image-min.jpg" alt="Babson College campus, Wellesley">
+                  <figcaption>Babson campus (example)</figcaption>
+                </figure>
+                <figure>
+                  <img src="https://images.unsplash.com/photo-1504198453319-5ce911bafcde?w=1200&q=80&auto=format&fit=crop" alt="Anchorage and mountains">
+                  <figcaption>Example travel photo (Anchorage)</figcaption>
+                </figure>
+              </section>
+
+              <section id="favorites" aria-labelledby="favorites-heading">
+                <h2 id="favorites-heading">Favorites — Food & Travel</h2>
+
+                <article aria-labelledby="chinese-heading">
+                  <h3 id="chinese-heading">Chinese Cuisine</h3>
+                  <p>Comfort dishes I enjoy:</p>
+                  <ul>
+                    <li>Jiaozi (Dumplings) — pan-fried or boiled dumplings.</li>
+                    <li>Mapo Tofu — spicy tofu with a savory sauce.</li>
+                    <li>Kung Pao Chicken — stir-fried chicken with peanuts and chiles.</li>
+                  </ul>
+                </article>
+
+                <article aria-labelledby="italian-heading">
+                  <h3 id="italian-heading">Italian Cuisine</h3>
+                  <p>Classic favorites I love:</p>
+                  <ul>
+                    <li>Spaghetti Carbonara</li>
+                    <li>Margherita Pizza</li>
+                    <li>Tiramisu</li>
+                  </ul>
+                </article>
+
+                <article aria-labelledby="alaska-heading">
+                  <h3 id="alaska-heading">Alaska — Why I love it</h3>
+                  <p>Mountains, glaciers, and wide-open skies — a favorite place to travel.</p>
+                </article>
+              </section>
+
+              <section id="itinerary" aria-labelledby="itinerary-heading">
+                <h2 id="itinerary-heading">Alaska — Suggested 7-Day Tour</h2>
+                <p>A compact 7-day loop highlighting coastal wildlife, glaciers, Denali, and northern lights opportunities.</p>
+
+                <section aria-labelledby="day1">
+                  <h3 id="day1">Day 1 — Anchorage</h3>
+                  <p>Arrive in Anchorage, explore downtown and the Tony Knowles Coastal Trail. Grab fresh seafood.</p>
+                </section>
+
+                <section aria-labelledby="day2">
+                  <h3 id="day2">Day 2 — Seward / Kenai Fjords</h3>
+                  <p>Boat tour to see tidewater glaciers and marine wildlife (whales, sea otters, puffins).</p>
+                </section>
+
+                <section aria-labelledby="day3">
+                  <h3 id="day3">Day 3 — Homer / Kachemak Bay</h3>
+                  <p>Coastal views, clamming, local art, and the Homer Spit.</p>
+                </section>
+
+                <section aria-labelledby="day4">
+                  <h3 id="day4">Day 4 — Travel north toward Denali</h3>
+                  <p>Overnight in Talkeetna or nearby; consider flightseeing for glacier views.</p>
+                </section>
+
+                <section aria-labelledby="day5">
+                  <h3 id="day5">Day 5 — Denali National Park</h3>
+                  <p>Bus tours, short hikes, and wildlife viewing in Denali.</p>
+                </section>
+
+                <section aria-labelledby="day6">
+                  <h3 id="day6">Day 6 — Fairbanks & Northern Lights</h3>
+                  <p>Higher chance of aurora viewing (seasonal); guided tours recommended.</p>
+                </section>
+
+                <section aria-labelledby="day7">
+                  <h3 id="day7">Day 7 — Flightseeing / Glacier visit</h3>
+                  <p>Flightseeing over glaciers or boat trips; return to Anchorage for departure.</p>
+                </section>
+              </section>
+
+              <section id="contact" aria-labelledby="contact-heading">
+                <h2 id="contact-heading">Contact</h2>
+                <p>If you want to reach me, add your email or social links here later.</p>
+                <p>Email: yourname@example.com</p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/yourprofile" target="_blank" rel="noopener">linkedin.com/in/yourprofile</a></p>
+              </section>
+
+            </main>
+
+            <footer>
+              <p>© 2026 Babson Demo — a simple HTML-only example.</p>
+            </footer>
+          </body>
+        </html>
+          media.innerHTML = '';
+          media.appendChild(big);
+          caption.textContent = img.dataset.caption || img.alt || '';
+          document.body.style.overflow = 'hidden';
+          lastFocused = document.activeElement;
+          closeBtn.focus();
+        }
+
+        function close(){
+          lb.setAttribute('aria-hidden','true');
+          media.innerHTML = '';
+          caption.textContent = '';
+          document.body.style.overflow = '';
+          if(lastFocused) lastFocused.focus();
+        }
+
+        var lastFocused = null;
+
+        images.forEach(function(img){
+          img.tabIndex = 0;
+          img.style.cursor = 'zoom-in';
+          img.addEventListener('click', function(){ open(img); });
+          img.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(img); } });
+        });
+
+        lb.addEventListener('click', function(e){ if(e.target === lb) close(); });
+        closeBtn.addEventListener('click', close);
+        document.addEventListener('keydown', function(e){ if(e.key === 'Escape' && lb.getAttribute('aria-hidden') === 'false') close(); });
+      })();
+    </script>
+  </body>
+</html>
