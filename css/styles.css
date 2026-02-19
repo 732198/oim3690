@@ -1,8 +1,12 @@
 h1{color:orange;font-size:70px;font-family: 'Times New Roman', Times, serif;
-background-color:lightblue;border:5px solid black;padding:10px;direction:rtl;text-align:center;letter-spacing:1px;}
+background-color:lightblue;border:5px solid black;padding:10px;direction:rtl;text-align:center;letter-spacing:1px;margin: 0;}
 
-p1{color:purple}
+h2, h3, h4, h5, h6{margin: 0;}
 
-p2{color:blue;font-size:20px;font-family: 'Times New Roman', Times, serif;}
+p{margin: 0;}
 
-img{border-radius: 90000000px;}
+p1{color:purple;margin: 0;}
+
+p2{color:blue;font-size:20px;font-family: 'Times New Roman', Times, serif;margin: 0;}
+
+img{border-radius: 9000000000px;padding: 15px;background-color: lightgrey;}
