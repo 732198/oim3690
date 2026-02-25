@@ -10,3 +10,21 @@ p1{color:purple;margin: 0;}
 p2{color:blue;font-size:20px;font-family: 'Times New Roman', Times, serif;margin: 0;}
 
 img{border-radius: 9000000000px;padding: 15px;background-color: lightgrey;}
+
+/* Styles for new content added to about.me.html */
+h2 {
+    color: navy;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    text-decoration: underline;
+}
+
+ul {
+    list-style-type: square;
+    margin-left: 20px;
+}
+
+li {
+    margin-bottom: 5px;
+}
+
