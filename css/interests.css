@@ -1,0 +1,189 @@
+/* CSS Variables for Color Scheme */
+:root {
+  --primary-color: #1e3a8a;
+  --secondary-color: #06b6d4;
+  --accent-color: #f97316;
+  --background-color: #0f172a;
+  --card-background: #1e293b;
+  --text-color: #e2e8f0;
+  --text-secondary: #cbd5e1;
+  --border-color: #334155;
+  --highlight-bg: #1e40af;
+  --highlight-text: #93c5fd;
+  --transition-speed: 0.4s;
+}
+
+/* Body Styling - Sets dark theme background and typography */
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, var(--background-color) 0%, #172554 100%);
+  color: var(--text-color);
+  padding: 40px 20px;
+  margin: 0;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Page Title - Gradient text with animation */
+h1 {
+  text-align: center;
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: 3em;
+  margin-bottom: 50px;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  animation: slideUp 0.8s ease-out;
+}
+
+/* Keyframe animation - Slides h1 up from bottom on page load */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Interest Card - Container for each interest section */
+.interest-card {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  border: 2px solid var(--border-color);
+  border-radius: 16px;
+  padding: 30px;
+  margin-bottom: 35px;
+  max-width: 850px;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all var(--transition-speed) cubic-bezier(0.23, 1, 0.320, 1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Card Hover Effect - Lifts card and changes border color */
+.interest-card:hover {
+  border-color: var(--secondary-color);
+  box-shadow: 0 12px 24px rgba(6, 182, 212, 0.25);
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* Section Title Container - Adds gradient border separator */
+.section-title {
+  border-bottom: 3px solid;
+  border-image: linear-gradient(90deg, var(--secondary-color), var(--accent-color)) 1;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+}
+
+/* Section Heading - Title for each interest */
+.section-title h2 {
+  margin: 0;
+  color: var(--secondary-color);
+  font-size: 2em;
+  transition: color var(--transition-speed) ease;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+/* Title Hover - Changes title color on card hover */
+.interest-card:hover .section-title h2 {
+  color: var(--accent-color);
+}
+
+/* Highlight Spans - Emphasizes key phrases in text */
+.highlight {
+  background: linear-gradient(135deg, var(--highlight-bg), var(--primary-color));
+  color: var(--highlight-text);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-weight: 700;
+  transition: all var(--transition-speed) ease;
+  display: inline-block;
+  border: 1px solid rgba(6, 182, 212, 0.3);
+}
+
+/* Highlight Hover - Animates highlights when card is hovered */
+.interest-card:hover .highlight {
+  background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+  color: white;
+  box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4);
+  transform: scale(1.1);
+  border-color: var(--accent-color);
+}
+
+/* Description Text - Body text styling */
+p {
+  font-size: 1.1em;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.9;
+  letter-spacing: 0.3px;
+}
+
+/* Links - Styled with hover effects matching theme */
+.link {
+  color: var(--secondary-color);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 2px solid var(--secondary-color);
+  transition: all var(--transition-speed) ease;
+  display: inline-block;
+  padding-bottom: 2px;
+}
+
+.link:hover {
+  color: var(--accent-color);
+  border-bottom-color: var(--accent-color);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design - Tablet screens (768px and below) */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2em;
+    margin-bottom: 40px;
+  }
+
+  .interest-card {
+    padding: 20px;
+    margin-bottom: 25px;
+  }
+
+  .section-title h2 {
+    font-size: 1.6em;
+  }
+
+  p {
+    font-size: 1em;
+  }
+}
+
+/* Responsive Design - Mobile screens (480px and below) */
+@media (max-width: 480px) {
+  body {
+    padding: 20px 15px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+    margin-bottom: 30px;
+  }
+
+  .interest-card {
+    padding: 15px;
+    border-radius: 12px;
+  }
+
+  .section-title h2 {
+    font-size: 1.3em;
+  }
+
+  p {
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+}
