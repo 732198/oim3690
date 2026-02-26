@@ -10,7 +10,7 @@
   --border-color: #334155;
   --highlight-bg: #1e40af;
   --highlight-text: #93c5fd;
-  --transition-speed: 0.4s;
+  --transition-speed: 1s;
 }
 
 /* Body Styling - Sets dark theme background and typography */
@@ -52,6 +52,8 @@ h1 {
 
 /* Interest Card - Container for each interest section */
 .interest-card {
+  /* solid blue fallback/background */
+  background-color: blue;
   background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
   border: 2px solid var(--border-color);
   border-radius: 16px;
@@ -60,7 +62,7 @@ h1 {
   max-width: 850px;
   margin-left: auto;
   margin-right: auto;
-  transition: all var(--transition-speed) cubic-bezier(0.23, 1, 0.320, 1);
+  transition: background-color 0.3s, all var(--transition-speed) cubic-bezier(0.23, 1, 0.320, 1);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
@@ -187,3 +189,4 @@ p {
     line-height: 1.6;
   }
 }
+

@@ -2,6 +2,7 @@
 - Pseudo-classes style elements by state: :hover, :focus, :nth-child(), :first-child
 - transition on the base element makes style changes animate smoothly
 - CSS variables: define with name: value on :root
+- adding transitions within my code
 
 - Variables make updating a color scheme a one-line change
 - <img> is inline by default — set display: block before margin: 0 auto to center it
