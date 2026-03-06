@@ -1,0 +1,23 @@
+body {
+  font-family: 'DM Sans', sans-serif;
+  background-color: #f5f0e8;
+}
+
+h1, h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+.card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
