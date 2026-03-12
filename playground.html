@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YouTube Embedder</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<header>
+  <h1>YouTube<br><em>Embedder</em></h1>
+  <span>v1.0</span>
+</header>
+
+<div class="input-row">
+  <input type="text" id="urlInput" placeholder="Paste YouTube URL or video ID…" />
+  <button id="embedBtn">Embed →</button>
+</div>
+
+<div class="hint">Accepts: full URLs, short youtu.be links, or raw video IDs</div>
+
+<div class="error-msg" id="errorMsg">⚠ Could not extract a valid YouTube video ID. Please check your input.</div>
+
+<div class="player-wrapper" id="playerWrapper">
+  <div class="player-label">
+    <div class="dot"></div>
+    Now Playing
+  </div>
+  <div class="embed-box">
+    <iframe id="ytFrame" src="" allowfullscreen
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture">
+    </iframe>
+  </div>
+  <div class="video-meta">
+    <div class="video-id-display">Video ID: <strong id="displayId">—</strong></div>
+    <button class="copy-btn" id="copyCodeBtn">Copy Embed Code</button>
+  </div>
+</div>
+
+<div class="code-section" id="codeSection">
+  <div class="code-header">
+    <span>Embed Code</span>
+    <span id="copyStatus"></span>
+  </div>
+  <pre id="codeBlock"></pre>
+</div>
+
+<script>
+  function extractVideoId(input) {
+    input = input.trim();
+    const patterns = [
+      /(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/embed\/|youtube\.com\/v\/)([a-zA-Z0-9_-]{11})/,
+      /^([a-zA-Z0-9_-]{11})$/
+    ];
+    for (const p of patterns) {
+      const m = input.match(p);
+      if (m) return m[1];
+    }
+    return null;
+  }
+
+  function buildEmbedCode(id) {
+    return `<iframe\n  width="560"\n  height="315"\n  src="https://www.youtube.com/embed/${id}"\n  title="YouTube video player"\n  frameborder="0"\n  allow="accelerometer; autoplay; clipboard-write;\n         encrypted-media; gyroscope; picture-in-picture"\n  allowfullscreen>\n</iframe>`;
+  }
+
+  function syntaxHighlight(code) {
+    return code
+      .replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+      .replace(/(&lt;\/?[\w]+)/g, '<span class="tag">$1</span>')
+      .replace(/([\w-]+=)/g, '<span class="attr">$1</span>')
+      .replace(/&gt;/g, '<span class="tag">&gt;</span>')
+      .replace(/"([^"]+)"/g, '"<span class="val">$1</span>"');
+  }
+
+  document.getElementById('embedBtn').addEventListener('click', embed);
+  document.getElementById('urlInput').addEventListener('keydown', e => { if (e.key === 'Enter') embed(); });
+
+  function embed() {
+    const input = document.getElementById('urlInput').value;
+    const error = document.getElementById('errorMsg');
+    const player = document.getElementById('playerWrapper');
+    const codeSection = document.getElementById('codeSection');
+    error.style.display = 'none';
+
+    const id = extractVideoId(input);
+    if (!id) {
+      error.style.display = 'block';
+      player.style.display = 'none';
+      codeSection.style.display = 'none';
+      return;
+    }
+
+    document.getElementById('ytFrame').src = `https://www.youtube.com/embed/${id}?autoplay=1`;
+    document.getElementById('displayId').textContent = id;
+
+    const code = buildEmbedCode(id);
+    document.getElementById('codeBlock').innerHTML = syntaxHighlight(code);
+
+    player.style.display = 'flex';
+    codeSection.style.display = 'block';
+    codeSection.style.opacity = '0';
+
+    document.getElementById('copyCodeBtn').onclick = () => {
+      navigator.clipboard.writeText(code).then(() => {
+        const s = document.getElementById('copyStatus');
+        s.textContent = '✓ Copied!';
+        setTimeout(() => s.textContent = '', 2000);
+      });
+    };
+  }
+</script>
+</body>
+</html>
