@@ -1,0 +1,12 @@
+<button id="greetBtn">Say Hello!</button>
+<p id="greetDisplay"></p>
+
+<script>
+  const btn = document.querySelector('#greetBtn');
+  const display = document.querySelector('#greetDisplay');
+
+  btn.addEventListener('click', function () {
+    let name = 'Paris';
+    display.textContent = `Hello, ${name}!`;
+  });
+</script>
