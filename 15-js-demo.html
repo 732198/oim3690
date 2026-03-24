@@ -67,7 +67,13 @@
     </div>
 
     <div class="demo-section">
-      <h3>5. The Surprise Button</h3>
+      <h3>6. Greeting</h3>
+      <button id="greetBtn">Say Hello!</button>
+      <p id="greetDisplay"></p>
+    </div>
+
+    <div class="demo-section">
+      <h4>5. The Surprise Button</h3>
       <button onclick="surpriseMe()">I dare you to click on me!</button>
     </div>
     <script>
@@ -143,6 +149,13 @@
         console.log(
           "🔍 Press F12 or right-click → 'Inspect Element' → 'Console' tab"
         );
+      });
+      const greetBtn = document.querySelector('#greetBtn');
+      const greetDisplay = document.querySelector('#greetDisplay');
+
+      greetBtn.addEventListener('click', function () {
+      let name = 'Charles';
+      greetDisplay.textContent = `Hello, ${name}! 👋`;
       });
     </script>
   </body>
