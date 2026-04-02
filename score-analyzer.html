@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Score Analyzer</title>
+</head>
+<body>
+  <h1>Score Analyzer</h1>
+
+  <ul id="scores"></ul>
+  <ul id="summary"></ul>
+
+  <script>
+    const scores = [88, 72, 95, 63, 81, 56, 90];
+
+    function getGrade(s) {
+      if (s >= 90) return 'A';
+      if (s >= 80) return 'B';
+      if (s >= 70) return 'C';
+      if (s >= 60) return 'D';
+      return 'F';
+    }
+
+    let total = 0, high = scores[0], low = scores[0], passing = 0;
+
+    for (let i = 0; i < scores.length; i++) {
+      const s = scores[i];
+      document.getElementById('scores').innerHTML += `<li>${s} — ${getGrade(s)}</li>`;
+      total += s;
+      if (s > high) high = s;
+      if (s < low) low = s;
+      if (s >= 60) passing++;
+    }
+
+    document.getElementById('summary').innerHTML = `
+      <li>Count: ${scores.length}</li>
+      <li>Average: ${(total / scores.length).toFixed(1)}</li>
+      <li>Highest: ${high}</li>
+      <li>Lowest: ${low}</li>
+      <li>Passing: ${passing}</li>
+    `;
+  </script>
+</body>
+</html>
