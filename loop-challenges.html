@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Numbers</title>
+</head>
+<body>
+  <ul id="list"></ul>
+
+  <script>
+    const numbers = [4, -8, 15, -16, 23, 42, -3];
+
+    for (let i = 0; i < numbers.length; i++) {
+      const li = document.createElement('li');
+      li.textContent = numbers[i];
+      document.getElementById('list').appendChild(li);
+    }
+  </script>
+</body>
+</html>

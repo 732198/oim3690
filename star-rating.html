@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Star Rating</title>
+</head>
+<body>
+  <input id="ratingInput" type="number" min="1" max="5">
+  <button>Rate</button>
+  <div id="stars"></div>
+
+  <script>
+    const btn = document.querySelector('button');
+    const ratingInput = document.querySelector('#ratingInput');
+    const container = document.querySelector('#stars');
+
+    btn.addEventListener("click", function() {
+      let stars = ''; 
+      const rating = parseInt(ratingInput.value);
+      for (let i = 0; i < 5; i++) {
+        if (i < rating) {
+          stars += '★';
+        } else {
+          stars += '☆';
+        }
+      }
+      container.textContent = stars;
+    });
+  </script>
+</body>
+</html>
