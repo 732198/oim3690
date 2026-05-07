@@ -14,3 +14,5 @@ Thisis my course repository for OIM 3690
 - [mini project 2](https://github.com/732198/mini-project-2)
 - [mini project 3](https://github.com/732198/mini-project-3)
 - [final project](https://github.com/732198/final-project-pest-alart)
+- [side project](https://github.com/732198/side-project)
+- [lta project](https://github.com/732198/lta-final-creative-project)
